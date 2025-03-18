@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 
 import cors from "cors";
 import userRoutes from "./router/userRouter.js";
+import adminRoutes from "./router/adminRouter.js";
+
 
 const app = express();
 app.use(express.json());
@@ -32,4 +34,6 @@ const initializeDBAndServer = async () => {
 };
 initializeDBAndServer();
 
-app.use("/api/user", userRoutes);
+app.use("/api", userRoutes);
+app.use("/api", adminRoutes);
+
